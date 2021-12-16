@@ -1,0 +1,165 @@
+Dependencies for Project 'Star', Target 'Target 1': (DO NOT MODIFY !)
+F (.\sources\ace_pins.c)(0x5861B696)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\ace_pins.o --omf_browse .\output\ace_pins.crf --depend .\output\ace_pins.d)
+I (D:\Projects\Stars\Keil\sources\ace_pins.h)(0x5862FF51)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\sources\ace_usart.c)(0x5862FF6C)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\ace_usart.o --omf_browse .\output\ace_usart.crf --depend .\output\ace_usart.d)
+I (D:\Projects\Stars\Keil\sources\ace_usart.h)(0x5DEAA42E)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\sources\ace_pins.h)(0x5862FF51)
+F (.\sources\main.c)(0x5DFD88C0)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+I (D:\Keil5\ARM\ARMCC\include\stdio.h)(0x51C7EF84)
+I (D:\Keil5\ARM\ARMCC\include\stdlib.h)(0x51C7EF84)
+I (D:\Projects\Stars\Keil\sources\ace_usart.h)(0x5DEAA42E)
+I (D:\Projects\Stars\Keil\sources\ace_pins.h)(0x5862FF51)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_adc.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_crc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\ws2812\ws281x.h)(0x5FE75103)
+F (.\ws2812\ws281x.c)(0x5DF43C4D)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\ws281x.o --omf_browse .\output\ws281x.crf --depend .\output\ws281x.d)
+I (D:\Projects\Stars\Keil\ws2812\ws281x.h)(0x5FE75103)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_tim.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_dma.h)(0x54808D11)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_usart.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_usart.o --omf_browse .\output\stm32f0xx_usart.crf --depend .\output\stm32f0xx_usart.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rcc.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_rcc.o --omf_browse .\output\stm32f0xx_rcc.crf --depend .\output\stm32f0xx_rcc.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_misc.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_misc.o --omf_browse .\output\stm32f0xx_misc.crf --depend .\output\stm32f0xx_misc.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+F (.\STM32F0xx_StdPeriph_Driver\startup_stm32f030.s)(0x5DEAA6C0)(--cpu Cortex-M0 --pd "__EVAL SETA 1" -g --apcs=interwork -I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include--list .\output\startup_stm32f030.lst --xref -o .\output\startup_stm32f030.o --depend .\output\startup_stm32f030.d)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_dma.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_dma.o --omf_browse .\output\stm32f0xx_dma.crf --depend .\output\stm32f0xx_dma.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_dma.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_tim.o --omf_browse .\output\stm32f0xx_tim.crf --depend .\output\stm32f0xx_tim.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_tim.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_gpio.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_gpio.o --omf_browse .\output\stm32f0xx_gpio.crf --depend .\output\stm32f0xx_gpio.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_adc.o --omf_browse .\output\stm32f0xx_adc.crf --depend .\output\stm32f0xx_adc.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_adc.h)(0x54808D10)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (.\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_crc.c)(0x54808D13)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\stm32f0xx_crc.o --omf_browse .\output\stm32f0xx_crc.crf --depend .\output\stm32f0xx_crc.d)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_crc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)
+F (RTE\Device\STM32F030F4\system_stm32f0xx.c)(0x5211D456)(-c --cpu Cortex-M0 -D__EVAL -g -O3 --apcs=interwork -I.\STM32F0xx_StdPeriph_Driver\inc -I.\sources -I.\ws2812 -I.\STM32F0xx_StdPeriph_Driver\inc-I D:\Projects\Stars\Keil\RTE-I D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include-D_RTE_ -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -DLIGHT_WS2812_UC_STM32F0XX -DF_CPU="16000000" -o .\output\system_stm32f0xx.o --omf_browse .\output\system_stm32f0xx.crf --depend .\output\system_stm32f0xx.d)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx.h)(0x54808D0E)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm0.h)(0x512C56A2)
+I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x51C7EF84)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (D:\Keil5\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (D:\Keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.0.0\Device\Include\system_stm32f0xx.h)(0x5211D456)
+I (D:\Projects\Stars\Keil\sources\stm32f0xx_conf.h)(0x5861B6BB)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (D:\Projects\Stars\Keil\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h)(0x54808D10)

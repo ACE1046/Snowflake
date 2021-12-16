@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>534</width>
+    <height>283</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Star decoration test</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>261</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>30</y>
+      <width>231</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maxVisibleItems">
+     <number>20</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>Linear wave (Волна по диодам)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wave radial (Радиальная волна)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wave rotate (Вращающаяся волна)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Flux capacitor (Потоковый накопитель)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Flash (Вспышки)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Running lights (Бегающие огни)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Spiral (Спираль)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Tree (Деревья)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Flag (Флаг)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Flat wave (Плоская волна)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Monochrome (Один цвет)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Running lights 2 (Бегающие огни 2)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Spotlight (Прожекторы)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Arrows (Стрелки)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Spotlight mix (Прожектор 2)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Plasma (Плазма)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>60</y>
+      <width>231</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maxVisibleItems">
+     <number>20</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>Rainbow</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Light blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dark blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fire</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Green flash</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Red/Yel/Gr flash</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pastel</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Blue/Yellow</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Coca-Cola</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Russia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chrome</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Green fade</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Red/Yel/Gr fade</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_1">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_1">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>130</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 1</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>150</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 2</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_3">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>170</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 3</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_4">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>190</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 4</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_5">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>210</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 5</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_6">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>230</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 6</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_7">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>250</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Param 7</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbShuffle">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>211</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Shuffle (случайное)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>240</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

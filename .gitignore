@@ -1,0 +1,3 @@
+*.gcode
+_Tree/
+Small_stm32f030/Keil/output
