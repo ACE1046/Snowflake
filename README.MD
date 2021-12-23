@@ -20,6 +20,8 @@ https://youtu.be/c78VTL160hA
 Корпус из алюминиевых полос 20*2мм, соединители напечатаны на принтере. Диаметр чуть более метра. 150 диодов. ESP8266 в качестве контроллера
 (Wi-Fi [пока] не используется). Прошивка написана в PlatformIO, но должна компилироваться и в Arduino IDE.
 
+Альтернативный вариант корпуса из П-профиля 15х10 мм от mataor [/Big_esp8266/mataor](/Big_esp8266/mataor)
+
 Зависимости:
 * [Arduino core for ESP8266](https://github.com/esp8266/Arduino)
 * [FastLED](https://github.com/FastLED/FastLED)
