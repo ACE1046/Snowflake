@@ -11,7 +11,7 @@
 typedef CHSV palette[6];
 typedef palette TPalette;
 
-#define EFFECTS 16
+#define EFFECTS 20
 void Anim(int effect, int phase, const palette p, CHSV *vals, int param);
 void ColorBlend(const CHSV c1, const CHSV c2, uint8_t percent, CHSV &res);
 

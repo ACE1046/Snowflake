@@ -1,5 +1,17 @@
 #include "effects.h"
+#include <string.h>
 #include <random>
+
+#define param1 (param%2)
+#define param2 ((param/2)%2)
+#define param3 ((param/4)%2)
+#define param4 ((param/8)%2)
+#define param5 ((param/16)%2)
+#define param6 ((param/32)%2)
+#define param7 ((param/64)%2)
+#define param8 ((param/128)%2)
+const CHSV color_white = {205, 0, 255};
+const CHSV color_black = {205, 0, 0};
 
 const palette rainbow={
     {0, 255, 255},
@@ -31,9 +43,9 @@ const palette darkblue={
 const palette fire={
     {0, 255, 255},
     {10, 255, 205},
-    {20, 255, 155},
-    {30, 255, 205},
-    {20, 255, 155},
+    {22, 255, 215},
+    {43, 255, 245},
+    {29, 255, 235},
     {10, 255, 205}
 };
 
@@ -118,6 +130,15 @@ const palette chrome={
     {44, 95, 255},
 };
 
+const palette police={
+    {160, 255, 255},
+    {160, 255, 0},
+    {160, 255, 255},
+    {0, 255, 255},
+    {0, 255, 0},
+    {0, 255, 255},
+};
+
 const uint8_t led_coord_r[NUM_LEDS]={
 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255,   180, 192, 204, 216, 228,    180, 192, 204, 216, 228,
 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255,   180, 192, 204, 216, 228,    180, 192, 204, 216, 228,
@@ -196,6 +217,7 @@ uint8_t SatAdd(uint8_t i1, uint8_t i2)
 
 void Gamma(CHSV *c)
 {
+    (void)c;
     // if (*c[2]==0)  *c[2]=0; else
     // if (*c[2]<30)  *c[2]=1; else
     // if (*c[2]<60)  *c[2]=2; else
@@ -244,6 +266,34 @@ void ColorBlend(const CHSV c1, const CHSV c2, uint8_t percent, CHSV &res)
         res[2]=SatBlend(c1[2], c2[2], percent);
 }
 
+int pulse(int n)
+{ // convert 0-255 to 0-255-0
+    n = 127 - n;
+    if (n < 0) {
+        n = 127 - n;
+    }
+   return n*2;
+}
+
+palette rnd={
+    {0, 255, 255},
+    {0, 255, 255},
+    {0, 255, 255},
+    {0, 255, 255},
+    {0, 255, 255},
+    {0, 255, 255},
+};
+const palette *random_p()
+{
+    for (int i=0; i<6; i++)
+    {
+        rnd[i].h = rand()%256;
+        if (rand()%100 < 25) rnd[i].s = rand()%256; else rnd[i].s = 255;
+        if (rand()%100 < 25) rnd[i].v = rand()%256; else rnd[i].v = 255;
+    }
+    return &rnd;
+}
+
 const palette *GetPalette(int n)
 {
   switch(n)
@@ -261,12 +311,28 @@ const palette *GetPalette(int n)
     case 10: return &chrome; break;
     case 11: return &green_fade; break;
     case 12: return &ryg_fade; break;
+    case 13: return &police; break;
+    case 14: return random_p(); break;
     default: return &rainbow;
   }
 }
 
+void glitter(CHSV *vals, int param)
+{
+    int i;
+
+    if (param%7 < 4) // light glitter
+        for (i=0; i<rand()%3; i++)
+            vals[rand()%NUM_LEDS] = color_white;
+    if (param%13 < 6) // dark glitter
+        for (i=0; i<rand()%3; i++)
+            vals[rand()%NUM_LEDS] = color_black;
+}
+
 void AnimColorTest(int phase, const palette p, CHSV *vals, int param)
 {
+    (void)param;
+    (void)phase;
     int i, s, f;
     for (i=0; i<NUM_LEDS; i++)
     {
@@ -280,25 +346,26 @@ void AnimColorTest(int phase, const palette p, CHSV *vals, int param)
 void AnimRainbowAll(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=i;
-        if ((param/2)%2) f=NUM_LEDS-f-1;
+        if (param2) f=NUM_LEDS-f-1;
         s=(phase+f*256*6/NUM_LEDS)/256;
         f=(phase+f*256*6/NUM_LEDS)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+        if (param2 && led_coord_r[i] >= 180 && led_coord_br[i] == 0) vals[i].v = 0;
     }
 }
 
 void AnimRainbowRadial(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_r[i];
-        if ((param/2)%2) f=255-f;
+        if (param2) f=255-f;
         s=(phase+f*230*6/256)/256;
         f=(phase+f*230*6/256)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
@@ -308,7 +375,7 @@ void AnimRainbowRadial(int phase, const palette p, CHSV *vals, int param)
 void AnimRainbowRadialMix(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_r[i];
@@ -322,27 +389,27 @@ void AnimRainbowRadialMix(int phase, const palette p, CHSV *vals, int param)
 void AnimRainbowClock(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_a[i];
-        if ((param/8)%2 && led_coord_br[i]<30) f=255-f;
-        if ((param/2)%2) f=255-f;
+        if (param4 && led_coord_br[i]<30) f=255-f;
+        if (param2) f=255-f;
         s=(phase+f*6)/256;
         f=(phase+f*6)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
-        if ((param/4)%2 && led_coord_br[i]<30) { vals[i][2]=param/7%5; vals[i][1]/=param/11%3+1; }
+        if (param3 && led_coord_br[i]<30) { vals[i][2]=param/7%5; vals[i][1]/=param/11%3+1; }
     }
 }
 
 void AnimRainbowSpiral(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=(led_coord_a[i]+led_coord_r[i]/2)%256;
-        if ((param/2)%2) f=255-f;
+        if (param2) f=255-f;
         s=(phase+f*6)/256;
         f=(phase+f*6)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
@@ -352,11 +419,11 @@ void AnimRainbowSpiral(int phase, const palette p, CHSV *vals, int param)
 void AnimRainbowTree(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_br[i];
-        if ((param/2)%2) f=255-f;
+        if (param2) f=255-f;
         s=(phase+f*6)/256;
         f=(phase+f*6)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
@@ -365,6 +432,8 @@ void AnimRainbowTree(int phase, const palette p, CHSV *vals, int param)
 
 void AnimFlash(int phase, const palette p, CHSV *vals, int param)
 {
+    (void)phase;
+    (void)param;
     int i, l, c;
     for (i=0; i<NUM_LEDS; i++)
     {
@@ -387,14 +456,14 @@ void AnimWaveRadial(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f, s1, f1;
     int width=30+param%80;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     //phase=phase*2%(256*6);
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_r[i];
-    if ((param/16)%2) f=(f*2)%256;
-    if ((param/8)%2) f=(f+led_coord_a[i])%256;
-                if ((param/2)%2) f=255-f;
+    if (param5) f=(f*2)%256;
+    if (param4) f=(f+led_coord_a[i])%256;
+                if (param2) f=255-f;
                 s=phase/6;
     if ((param/32)%3 == 0)
     {
@@ -423,14 +492,14 @@ void AnimWaveRadialMono(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f, s1, f1;
     int width=30+param%80;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
     //phase=phase*2%(256*6);
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_r[i];
-    if ((param/16)%2) f=(f*2)%256;
-    if ((param/8)%2) f=(f+led_coord_a[i])%256;
-                if ((param/2)%2) f=255-f;
+    if (param5) f=(f*2)%256;
+    if (param4) f=(f+led_coord_a[i])%256;
+                if (param2) f=255-f;
                 s=phase/6;
     if ((param/32)%3 == 0)
     {
@@ -446,7 +515,7 @@ void AnimWaveRadialMono(int phase, const palette p, CHSV *vals, int param)
                         f=(led_coord_a[i]+param%253)%256;
                         if (f>128) f=256-f;
       f1=led_coord_a[i];
-      if (param/4%2) f1+=phase/4;
+      if (param/4%2) f1+=phase/6;
                   s1=(f1*6)/256;
                   f1=(f1*6)%256;
                   ColorBlend(p[s1%6], p[(s1+1)%6], f1, vals[i]);
@@ -466,21 +535,22 @@ void AnimFlag(int phase, const palette p, CHSV *vals, int param)
         for (i=0; i<NUM_LEDS; i++)
         {
                 f=                 (int)led_coord_y[i] + wave[(led_coord_x[i]/16+phase/48) % 32]*3;
-                if ((param/4)%2) f=(int)led_coord_x[i] + wave[(led_coord_y[i]/16+phase/48) % 32]*3;
+                if (param3) f=(int)led_coord_x[i] + wave[(led_coord_y[i]/16+phase/48) % 32]*3;
     if (f<0) f=0;
     if (f>255) f=255;
-                if ((param/2)%2) f=255-f;
+                if (param2) f=255-f;
                 s=(f*6)/256;
                 //f=(f*5)%256;
     f=0;
                 ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
         }
+    glitter(vals, param);
 }
 
 void AnimRainbowDecart(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    //if (param%2) phase=256*6-phase-1;
+    //if (param1) phase=256*6-phase-1;
     for (i=0; i<NUM_LEDS; i++)
     {
         f=led_coord_y[i];
@@ -491,23 +561,28 @@ void AnimRainbowDecart(int phase, const palette p, CHSV *vals, int param)
         if ((param/4)%8 == 5) f=(led_coord_x[i]+ (led_coord_y[i]<=128 ? led_coord_y[i] : 255-led_coord_y[i])) % 256;
         if ((param/4)%8 == 6) f=(led_coord_y[i]+ (led_coord_x[i]>=128 ? led_coord_x[i]-128 : 128-led_coord_x[i])) % 256;
         if ((param/4)%8 == 7) f=(led_coord_y[i]+ (led_coord_x[i]<=128 ? led_coord_x[i] : 255-led_coord_x[i])) % 256;
-        if ((param/2)%2) f=255-f;
+        if (param2) f=255-f;
         s=(phase+f*6)/256;
         f=(phase+f*6)%256;
         ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
     }
+    glitter(vals, param);
 }
 
 void AnimMonochrome(int phase, const palette p, CHSV *vals, int param)
 {
     int i, s, f;
-    if (param%2) phase=256*6-phase-1;
+    if (param1) phase=256*6-phase-1;
   s=(phase+256*6)/256;
         f=(phase+256*6)%256;
         for (i=0; i<NUM_LEDS; i++)
         {
                 ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
         }
+
+    s = 3;
+
+    glitter(vals, param);
 }
 
 void AnimSpotlight(int phase, const palette p, CHSV *vals, int param)
@@ -515,7 +590,7 @@ void AnimSpotlight(int phase, const palette p, CHSV *vals, int param)
         int a, i, s, f, f2, c;
 
   a=phase/6;
-  if (param%2) a=255-a;
+  if (param1) a=255-a;
         for (i=0; i<NUM_LEDS; i++)
         {
     s=led_coord_a[i]-a;
@@ -543,25 +618,25 @@ void AnimArrows(int phase, const palette p, CHSV *vals, int param)
 {
   const int border=170;
         int i, s, f;
-        if (param%2) phase=256*6-phase-1;
+        if (param1) phase=256*6-phase-1;
         for (i=0; i<NUM_LEDS; i++)
         {
-    if ((param/8)%2)
+    if (param4)
                   f=((led_coord_r[i]-border)*255/(255-border)+phase) % 256;
     else
                   f=(led_coord_a[i]+phase/6) % 256;
     if (f<0) f=0;
-                //if ((param/8)%2 && led_coord_br[i]<30) f=255-f;
-                if ((param/2)%2) f=255-f;
+                //if (param4 && led_coord_br[i]<30) f=255-f;
+                if (param2) f=255-f;
                 s=(f*6)/256;
                 f=(f*6)%256;
     vals[i].v=0;
     if (led_coord_r[i]>=border)
                   ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
     else
-      if ((param/4)%2 && phase%256>led_coord_r[i] && phase%256-led_coord_r[i]<20)
+      if (param3 && phase%256>led_coord_r[i] && phase%256-led_coord_r[i]<20)
                     ColorBlend(p[((phase%256)*border/255)%6], p[(((phase%256)*border/255)+1)%6], f, vals[i]);
-                //if ((param/4)%2 && led_coord_br[i]<30) { vals[i][2]=param/7%5; vals[i][1]/=param/11%3; }
+                //if (param3 && led_coord_br[i]<30) { vals[i][2]=param/7%5; vals[i][1]/=param/11%3; }
         }
 }
 
@@ -574,7 +649,7 @@ void colorbycoord(int x1, int y1, int x2, int y2, int param, const palette p, CH
   else
   {
     f=d*256/rsqr;
-    if (param%2) f=(param/2)%6;
+    if (param1) f=(param/2)%6;
                 s=(f*6)/256;
                 f=(f*6)%256;
           ColorBlend(p[s%6], p[(s+1)%6], f, c);
@@ -587,9 +662,9 @@ void AnimSpotlightMix(int phase, const palette p, CHSV *vals, int param)
   CHSV c1, c2;
 
   x1=(param)%2;
-  x2=(param/2)%2;
-  y1=(param/4)%2;
-  y2=(param/8)%2;
+  x2=param2;
+  y1=param3;
+  y2=param4;
   x1=x1*2-1;
   x2=x2*2-1;
   y1=y1*2-1;
@@ -618,26 +693,312 @@ void AnimSpotlightMix(int phase, const palette p, CHSV *vals, int param)
 
 void AnimPlasma(int phase, const palette p, CHSV *vals, int param)
 {
-  int i, x, y, s, f;
-        if ((param/2)%2) phase=256*6-phase-1;
+  int i, s, f;
+  float x, y;
+  static int ph = 0, old_phase = 0;
+
+  ph += ((phase + 6*256) - old_phase) % (6*256);
+  old_phase = phase;
+
+        if (param2) phase=256*6-phase-1;
         for (i=0; i<NUM_LEDS; i++)
         {
-    x=led_coord_x[i];
-    y=led_coord_y[i];
+    x=led_coord_x[i]/3;
+    y=led_coord_y[i]/3;
 
     int color = int
     (
         128.0 + (128.0 * sin(x / 16.0)+param%777)
-      + 128.0 + (128.0 * sin(y / 8.0)+2*Pi*phase/512+param%555)
-      + 128.0 + (128.0 * sin((x + y) / 16.0)+2*Pi*phase/256)
+      + 128.0 + (128.0 * sin(y / 8.0)+2*Pi*ph/51+param%555)
+      + 128.0 + (128.0 * sin((x + y) / 16.0)+2*Pi*ph/25)
       + 128.0 + (128.0 * sin(sqrt(double(x * x + y * y)) / 8.0))
     ) / 4;
-    color=(color+phase/6) %256;
-    if (param%2) color=255-color;
+    color=(color/*+phase/6*/) %256;
+    if (param1) color=255-color;
                 s=(color*6)/256;
                 f=(color*6)%256;
           ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
   }
+}
+
+#define PI 3.14159
+
+void AnimMultiRotate(int phase, const palette p, CHSV *vals, int param)
+{
+    const int r_c_x[6] = { (int)(127*cos(0)), (int)(127*cos(60*PI/180)), (int)(127*cos(120*PI/180)), (int)(127*cos(180*PI/180)), (int)(127*cos(240*PI/180)), (int)(127*cos(300*PI/180)) };
+    const int r_c_y[6] = { (int)(127*sin(0)), (int)(127*sin(60*PI/180)), (int)(127*sin(120*PI/180)), (int)(127*sin(180*PI/180)), (int)(127*sin(240*PI/180)), (int)(127*sin(300*PI/180)) };
+    const int r_c_x2[6] = { (int)(127*cos(30*PI/180)), (int)(127*cos(90*PI/180)), (int)(127*cos(150*PI/180)), (int)(127*cos(210*PI/180)), (int)(127*cos(270*PI/180)), (int)(127*cos(330*PI/180)) };
+    const int r_c_y2[6] = { (int)(127*sin(30*PI/180)), (int)(127*sin(90*PI/180)), (int)(127*sin(150*PI/180)), (int)(127*sin(210*PI/180)), (int)(127*sin(270*PI/180)), (int)(127*sin(330*PI/180)) };
+    int i, s, f, n, rx, ry, color, a;
+    if (param1) phase=256*6-phase-1;
+    //phase=phase*2%(256*6);
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        f=led_coord_a[i];
+    if ((param/32)%3 == 0)
+    {
+      s=phase/3;
+      if (s>255) s=511-s;
+    }
+    n = f*6 / 256; // sector 0-5
+    n = (7-n)%6;
+    if (param2)
+        n = (n)/2 * 2;
+    s = 90;
+    if (param4) s=128;
+    rx = r_c_x[n]*s/128+127;
+    ry = r_c_y[n]*s/128+127;
+    if (param3)
+    {
+        rx = r_c_x2[n]*s/128+127;
+        ry = r_c_y2[n]*s/128+127;
+    }
+    ry = 255 - ry;
+    a = atan2(led_coord_x[i]-rx, led_coord_y[i]-ry) * 127 / PI;
+    if (a<0) a += 256;
+
+    color=(a+phase/6) %256;
+    //color=(ry);
+    //color=n *40;
+    //color=a;
+    if (param1) color=255-color;
+                s=(color*6)/256;
+                f=(color*6)%256;
+          ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+    }
+}
+
+void AnimBounce(int phase, const palette p, CHSV *vals, int param)
+{
+    int i, r1, r2, sz, s, f, color, n;
+    for (i=0; i<NUM_LEDS; i++) vals[i] = color_black;
+
+    phase = phase / 6;
+    if (phase <  64) { r1 = 0; r2 = phase; } else
+    if (phase < 128) { r1 = phase - 64; r2 = 63; } else
+    if (phase < 192) { r1 = 191 - phase; r2 = 63; } else
+                     { r1 = 0; r2 = 255 - phase; }
+
+    sz = 30;
+    r1 = r1*(256-sz)/64;
+    r2 = r2*(256-sz)/64 + sz+1;
+
+    if (param2) { r1 = 127 - r1/2; r2 = 128 + r2/2; }
+    if (param3) { r1 = 127 - (r2-r1)/2; r2 = 128 + (r2-r1)/2; }
+
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        n = led_coord_a[i]*6 / 256; // sector 0-5
+        n = n % 2; // even/odd branch
+        f=led_coord_r[i];
+        if (r2 == r1) r2++;
+        color = (f - r1) * 256 / (r2 - r1);
+        if (param5 && n)
+            color = (f - (255-r2)) * 256 / (r2-r1);
+
+        if (param1) color=255-color;
+        if (param4 && n) color=255-color;
+        //color= r1;
+        s=(color*6)/256;
+        f=(color*6)%256;
+        if (color >= 0 && color < 256)
+            ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+    }
+}
+
+void AnimFill(int phase, const palette p, CHSV *vals, int param)
+{
+    int i, s, f, color, n, e;
+    int fill[15];
+    for (i=0; i<NUM_LEDS; i++) vals[i] = color_black;
+
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        e = led_coord_a[i]*6 / 256; // sector 0-5
+        e = e % 2; // even/odd branch
+        n = phase;
+        if (param5) n = (phase + led_coord_a[i] * 6);
+        if (param5 && (param6 || e)) n = (phase + 6*256 - led_coord_a[i] * 6);
+        n = (n * 240 / 6 / 256) % 240;
+        memset(fill, 0, sizeof(fill));
+        if (n < 120)
+            for (s = 15; s > 0; s--)
+            {
+                if (n < s) fill[n] = 1; else fill[s - 1] = 1;
+                n = n-s;
+                if (n<0) break;
+            }
+        else
+        {
+            n = n - 120;
+            n = 119 - n;
+            for (s = 15; s > 0; s--)
+            {
+                int k;
+                if (n < s) k = n; else k = s - 1;
+                if (param6) k = 15 - k;
+                fill[k] = 1;
+                n = n-s;
+                if (n<0) break;
+            }
+        }
+
+        f=led_coord_r[i];
+        color = f;
+        if (param1) color=255-color;
+        if (param2 && n) color=255-color;
+        if (param3 && (param4 || e)) f = 15 - f*15/256; else f = f*15/256;
+        if (fill[f] == 0) color = -1;
+
+        //color= r1;
+        if (color >= 0 && color < 256)
+        {
+            if (param7) color=color + phase / 6 + led_coord_a[i];
+            s=(color*6)/256;
+            f=(color*6)%256;
+            ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+        }
+    }
+}
+
+void AnimFireworks(int phase, const palette p, CHSV *vals, int param)
+{
+    int i, s, f, color, n, e;
+    int fill[15];
+    for (i=0; i<NUM_LEDS; i++) vals[i] = color_black;
+
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        e = led_coord_a[i]*6 / 256; // sector 0-5
+        e = e % 2; // even/odd branch
+        n = phase;
+        if (param5) n = (phase + led_coord_a[i] * 6);
+        if (param5 && (param6 || e)) n = (phase + 6*256 - led_coord_a[i] * 6);
+        n = (n / 6) % 256;
+        memset(fill, 0, sizeof(fill));
+        if (n < 170)
+        {
+            if (n > 24)
+            fill[n/12-2] = 255 - (n%12) * 21;
+            if (n > 12)
+            fill[n/12-1] = 255;
+            fill[n/12+0] = (n%12) * 21;
+        }
+        else
+            for (s = 10; s < 15; s++) fill[s] = rand()%3 * 127;
+
+        f=led_coord_r[i];
+        color = f;
+        if (param3) color=phase / 6;
+        if (param8) color=255-color;
+        if (param2 && n) color=255-color;
+        n = f*15/256;
+
+        //color= r1;
+        if (fill[n])
+        {
+            if (param7) color=color + phase / 6 + led_coord_a[i];
+            if (param4 && n > 10) color = rand()%256;
+            s=(color*6)/256;
+            f=(color*6)%256;
+            ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+            vals[i].v = fill[n];
+            if (param1 && n > 10 && (rand()%100 > 90)) vals[i] = color_white;
+        }
+    }
+}
+
+void AnimPropeller(int phase, const palette p, CHSV *vals, int param)
+{
+    int i, s, f, color, n, e;
+    for (i=0; i<NUM_LEDS; i++) vals[i] = color_black;
+
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        e = led_coord_a[i];
+        n = phase;
+        //if (param5) n = (phase + led_coord_a[i] * 6);
+        //if (param5 && (param6 || e)) n = (phase + 6*256 - led_coord_a[i] * 6);
+        n = phase/2;
+        if (param1) n = 3*256 - phase/2;
+        if (param3) n = 3*256 - phase/2 + led_coord_r[i]*2/3;
+        if (param4 && led_coord_br[i] >= 128) n += 3*256/4 + 3*256 - phase;
+        n = ((e*3) + n) % (3*256/2);
+        //if (param3) color=phase / 6;
+        //if (param2 && n) color=255-color;
+
+        color = led_coord_r[i];
+        if (param2) color=phase / 6 + led_coord_r[i]/2;
+        if (param5) color=255-color;
+        if (n >=0 && n < 256)
+        {
+            if (param7) color=color + phase / 6 + led_coord_a[i];
+            //if (param4 && n > 10) color = rand()%256;
+            s=(color*6)/256;
+            f=(color*6)%256;
+            ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+            n = 127 - n;
+            if (n < 0) {
+                n = 127 - n;
+            }
+            vals[i].v = vals[i].v * (255 - n*2) / 255;
+        }
+    }
+}
+
+void AnimDiamond(int phase, const palette p, CHSV *vals, int param)
+{
+    const int r_c_x[6] = { (int)(127*cos(30*PI/180)), (int)(127*cos(90*PI/180)), (int)(127*cos(150*PI/180)), (int)(127*cos(210*PI/180)), (int)(127*cos(270*PI/180)), (int)(127*cos(330*PI/180)) };
+    const int r_c_y[6] = { (int)(127*sin(30*PI/180)), (int)(127*sin(90*PI/180)), (int)(127*sin(150*PI/180)), (int)(127*sin(210*PI/180)), (int)(127*sin(270*PI/180)), (int)(127*sin(330*PI/180)) };
+    int i, s, f, n, rx, ry, color, a, b;
+    if (param1) phase=256*6-phase-1;
+    for (i=0; i<NUM_LEDS; i++) vals[i] = color_black;
+    //phase=phase*2%(256*6);
+    for (i=0; i<NUM_LEDS; i++)
+    {
+        f=led_coord_a[i];
+        if ((param/32)%3 == 0)
+        {
+            s=phase/3;
+            if (s>255) s=511-s;
+        }
+        n = f*6 / 256; // sector 0-5
+        n = (7-n)%6;
+        n = (n)/2 * 2;
+        s = 90;
+        if (param4) s=128;
+        rx = r_c_x[n]*s/128+127;
+        ry = r_c_y[n]*s/128+127;
+        ry = 255 - ry;
+        a = atan2(led_coord_x[i]-rx, led_coord_y[i]-ry) * 127 / PI;
+        if (a<0) a += 256;
+
+        color=(a+phase/6) %256;
+        //color=(ry);
+        //color=n *40;
+        //color=a;
+
+        b = 255;
+        a = led_coord_a[i] % 86;
+        if (param2) a = (led_coord_a[i]+43) % 86;
+        if (led_coord_r[i] >= 180 && (a < 23 || a > 62)) b = 0;
+        if (param3)
+        {
+            a = led_coord_a[i] % 86;
+            if (led_coord_r[i] >= 180 && (a < 23 || a > 62)) b = phase/6;
+            a = (led_coord_a[i]+43) % 86;
+            if (led_coord_r[i] >= 180 && (a < 23 || a > 62)) b = (phase/6 + 128) % 256;
+            b = pulse(b);
+            if (led_coord_r[i] >= 180 && led_coord_br[i] == 0) b = 0;
+        }
+        if (param5) color=(color + pulse(led_coord_r[i])) % 256;
+        if (param6) color=(led_coord_a[i]+phase/6) %256;;
+        if (param1) color=255-color;
+        s=(color*6)/256;
+        f=(color*6)%256;
+        ColorBlend(p[s%6], p[(s+1)%6], f, vals[i]);
+        vals[i].v = vals[i].v * b / 255;
+    }
 }
 
 void Anim(int effect, int phase, const palette p, CHSV *vals, int param)
@@ -660,6 +1021,12 @@ void Anim(int effect, int phase, const palette p, CHSV *vals, int param)
         case 13: AnimArrows(phase, p, vals, param); break;
         case 14: AnimSpotlightMix(phase, p, vals, param); break;
         case 15: AnimPlasma(phase, p, vals, param); break;
+        case 16: AnimMultiRotate(phase, p, vals, param); break;
+        case 17: AnimBounce(phase, p, vals, param); break;
+        case 18: AnimFill(phase, p, vals, param); break;
+        case 19: AnimFireworks(phase, p, vals, param); break;
+        case 20: AnimPropeller(phase, p, vals, param); break;
+        case 21: AnimDiamond(phase, p, vals, param); break;
 
     case 255: AnimColorTest(phase, p, vals, param); break;
         }

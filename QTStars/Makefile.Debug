@@ -501,13 +501,17 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../../Qt/5.7/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/5.7/mingw53_32/include/QtWidgets/QLabel \
 		../../../Qt/5.7/mingw53_32/include/QtWidgets/qlabel.h \
+		../../../Qt/5.7/mingw53_32/include/QtWidgets/QPushButton \
+		../../../Qt/5.7/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../../../Qt/5.7/mingw53_32/include/QtWidgets/QWidget \
 		../../../Qt/5.7/mingw53_32/include/QtGui/QPainter \
 		../../../Qt/5.7/mingw53_32/include/QtCore/QTimer \
 		../../../Qt/5.7/mingw53_32/include/QtCore/qtimer.h \
 		../../../Qt/5.7/mingw53_32/include/QtCore/qbasictimer.h \
 		../../../Qt/5.7/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
-		../../../Qt/5.7/mingw53_32/include/QtWidgets/qgraphicsitem.h
+		../../../Qt/5.7/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		../../../Qt/5.7/mingw53_32/include/QtCore/QDateTime \
+		../../../Qt/5.7/mingw53_32/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mainwindow.o mainwindow.cpp
 
 debug/hsv2rgb.o: hsv2rgb.cpp hsv2rgb.h

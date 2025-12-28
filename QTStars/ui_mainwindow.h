@@ -145,6 +145,12 @@ public:
          << QApplication::translate("MainWindow", "Arrows (\320\241\321\202\321\200\320\265\320\273\320\272\320\270)", 0)
          << QApplication::translate("MainWindow", "Spotlight mix (\320\237\321\200\320\276\320\266\320\265\320\272\321\202\320\276\321\200 2)", 0)
          << QApplication::translate("MainWindow", "Plasma (\320\237\320\273\320\260\320\267\320\274\320\260)", 0)
+         << QApplication::translate("MainWindow", "Multi rotate (\320\234\321\203\320\273\321\214\321\202\320\270\320\262\321\200\320\260\321\211\320\265\320\275\320\270\320\265)", 0)
+         << QApplication::translate("MainWindow", "Bounce (\320\243\320\277\321\200\321\203\320\263\320\276\321\201\321\202\321\214)", 0)
+         << QApplication::translate("MainWindow", "Fill (\320\227\320\260\320\277\320\276\320\273\320\275\320\265\320\275\320\270\320\265)", 0)
+         << QApplication::translate("MainWindow", "Fireworks (\320\244\320\265\320\271\320\265\321\200\320\262\320\265\321\200\320\272)", 0)
+         << QApplication::translate("MainWindow", "Propeller (\320\237\321\200\320\276\320\277\320\265\320\273\320\273\320\265\321\200)", 0)
+         << QApplication::translate("MainWindow", "Diamond (\320\220\320\273\320\274\320\260\320\267)", 0)
         );
         comboBox_2->clear();
         comboBox_2->insertItems(0, QStringList()
@@ -161,6 +167,8 @@ public:
          << QApplication::translate("MainWindow", "Chrome", 0)
          << QApplication::translate("MainWindow", "Green fade", 0)
          << QApplication::translate("MainWindow", "Red/Yel/Gr fade", 0)
+         << QApplication::translate("MainWindow", "Police", 0)
+         << QApplication::translate("MainWindow", "Random", 0)
         );
         label_1->setText(QString());
         label_2->setText(QString());

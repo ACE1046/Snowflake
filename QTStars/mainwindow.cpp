@@ -40,8 +40,8 @@ MainWindow::MainWindow(QWidget *parent) :
     effect_start2=0;
     effect1_param=0;
     effect2_param=0;
-    effect1=15;
-    effect2=2;
+    effect1=21;
+    effect2=21;
     save_frames=0;
     p1=p2=GetPalette(0);
     ticks.start();
@@ -104,7 +104,7 @@ void MainWindow::draw_effect()
     { // fade start
         do
         {
-            pal=rand()%13;
+            pal=rand()%14;
             p2 = GetPalette(pal);
         }	while (p1==p2);
         do
@@ -272,4 +272,10 @@ void MainWindow::on_pushButton_clicked()
 {
     save_frames = SAVE_FRAMES;
     last_save = ticks.elapsed();
+}
+
+
+void MainWindow::on_comboBox_activated(const QString &arg1)
+{
+
 }

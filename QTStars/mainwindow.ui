@@ -116,6 +116,36 @@
       <string>Plasma (Плазма)</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Multi rotate (Мультивращение)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bounce (Упругость)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fill (Заполнение)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fireworks (Фейерверк)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Propeller (Пропеллер)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Diamond (Бриллиант)</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
@@ -192,6 +222,16 @@
     <item>
      <property name="text">
       <string>Red/Yel/Gr fade</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Police</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Random</string>
      </property>
     </item>
    </widget>
